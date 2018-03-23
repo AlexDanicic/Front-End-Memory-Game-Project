@@ -48,6 +48,15 @@ function generateDeck() {
 }
 
 // After the first card is clicked, the timer starts
+function startTimer() {
+    if (firstClickedCard == 1) {
+        $('#time-panel').timer({
+            format: '%H:%M:%S'
+        });
+    }
+}
+
+// Seconds to minutes and seconds
 
 
 
