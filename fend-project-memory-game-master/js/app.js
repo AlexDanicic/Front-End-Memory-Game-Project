@@ -73,6 +73,20 @@ function fancyTimeFormat(time) {
     return ret;
 }
 
+//Clicked card function
+function ckeckClickedCard(clickedCard) {
+    if ($(clickedCard).hasClass('clicked') || $('.card').hasClass('preventclick')) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// function to add open show class
+function showCard(clickedCard) {
+    $(clickedCard).addClass('open show')
+}
+
 // Card click and timer setup
 let firstClickedCard = 0;
 $('.card').on('click', function() {
