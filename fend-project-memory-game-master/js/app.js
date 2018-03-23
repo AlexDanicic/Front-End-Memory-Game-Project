@@ -73,7 +73,16 @@ function fancyTimeFormat(time) {
     return ret;
 }
 
-// Cardclick and timer setup
+// Card click and timer setup
+let firstClickedCard = 0;
+$('.card').on('click', function() {
+    firstClickedCard += 1;
+    startTimer();
+    let clickedCard = this;
+    if (checkClickedCard(clickedCard) === true) {
+        console.log('try another card');
+    }
+})
 
 
 
