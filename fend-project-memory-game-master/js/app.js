@@ -95,6 +95,9 @@ $('.card').on('click', function() {
     let clickedCard = this;
     if (checkClickedCard(clickedCard) === true) {
         console.log('try another card');
+    } else {
+        $(clickedCard).addClass('clicked');
+        showCard(clickedCard);
     }
 })
 
