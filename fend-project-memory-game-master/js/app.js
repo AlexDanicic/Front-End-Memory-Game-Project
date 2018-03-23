@@ -57,6 +57,23 @@ function startTimer() {
 }
 
 // Seconds to minutes and seconds
+function fancyTimeFormat(time) {
+    //H, M and S
+    let hrs = ~~(time / 3600);
+    let mins = ~~((time % 3600) /60);
+    let secs = time % 60;
+    // Output like "1:01" or "1:01:01" or "10:01:01"
+    let ret = "";
+
+    if (hrs > 0) {
+        ret += "" + hrs + ":" +(mins < 10 ? "0" : "");
+    }
+    ret += "" + mins + ":" +(secs < 10 ? "0" : "");
+    ret += "" + secs;
+    return ret;
+}
+
+// Cardclick and timer setup
 
 
 
