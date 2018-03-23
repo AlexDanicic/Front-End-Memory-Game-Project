@@ -74,7 +74,7 @@ function fancyTimeFormat(time) {
 }
 
 //Clicked card function
-function ckeckClickedCard(clickedCard) {
+function checkClickedCard(clickedCard) {
     if ($(clickedCard).hasClass('clicked') || $('.card').hasClass('preventclick')) {
         return true;
     } else {
@@ -82,9 +82,21 @@ function ckeckClickedCard(clickedCard) {
     }
 }
 
+
 // function to add open show class
 function showCard(clickedCard) {
     $(clickedCard).addClass('open show')
+}
+
+// store open card
+function storeOpenCard(clickedCard) {
+    if (openCards.length < 1) {
+        openCards[0] = clickedCard;
+    } else if (openCards.length < 2) {
+        openCards[1] = clickedCard;
+        preventClick();
+        compareCards();
+    }
 }
 
 // Card click and timer setup
@@ -98,8 +110,15 @@ $('.card').on('click', function() {
     } else {
         $(clickedCard).addClass('clicked');
         showCard(clickedCard);
+        storeOpenCard(clickedCard);
     }
-})
+});
+
+// Function Matched Cards
+
+
+// Open card + animation
+let openCards = [];
 
 
 
