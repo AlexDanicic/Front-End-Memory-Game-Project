@@ -34,11 +34,21 @@ function shuffle(array) {
     return array;
 }
 
-/*
- * Create a list that holds all of your cards
- */
 
-const deck = 
+// Create a list that holds all of your cards 
+const deck = $('.deck');
+const mixedCards = shuffle(defaultCards);
+generateDeck(); 
+
+// Generates the HTML code for the cards and open each element to the deck
+function generateDeck() {
+    for (let a = 0; a < 16; a += 1) {
+        $(deck).append('<li class="card"><i class="fa ' + mixedCards[a] + '"></i></li>');
+    }
+}
+
+// After the first card is clicked, the timer starts
+
 
 
 /*
