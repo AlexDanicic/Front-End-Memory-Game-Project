@@ -114,13 +114,32 @@ $('.card').on('click', function() {
     }
 });
 
-// Function Matched Cards
-function matchedCards() {
-    $
+// Hide cards function
+function hideCards() {
+    $(openCards[0]).removeClass('clicked open show');
+    $(openCards[1]).removeClass('clicked open show');
 }
+
+// Function Matched Cards
+let matchedPairCount = 0;
+
+function matchedCards() {
+    $(openCards[0]).addClass('match');
+    $(openCards[1]).addClass('match');
+    matchedPairCount += 1;
+    if (matchedPairCount ===8) {
+        stopTimer()
+    }
+
+}
+
+// Stop timer
 
 // Open card + animation
 let openCards = [];
+function correctCards() {
+
+}
 
 
 
