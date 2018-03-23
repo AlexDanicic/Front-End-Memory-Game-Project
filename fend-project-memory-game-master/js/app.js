@@ -115,7 +115,9 @@ $('.card').on('click', function() {
 });
 
 // Function Matched Cards
-
+function matchedCards() {
+    $
+}
 
 // Open card + animation
 let openCards = [];
