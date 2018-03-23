@@ -73,6 +73,13 @@ function fancyTimeFormat(time) {
     return ret;
 }
 
+//Prevent Click function
+function preventClick() {
+    $('.card').each(function(index) {
+        $('.card').addClass('preventclick');
+    });
+}
+
 //Clicked card function
 function checkClickedCard(clickedCard) {
     if ($(clickedCard).hasClass('clicked') || $('.card').hasClass('preventclick')) {
@@ -120,6 +127,11 @@ function hideCards() {
     $(openCards[1]).removeClass('clicked open show');
 }
 
+// Stop timer
+function stopTimer() {
+    $('#time-panel').timer('pause');
+}
+
 // Function Matched Cards
 let matchedPairCount = 0;
 
@@ -133,7 +145,7 @@ function matchedCards() {
 
 }
 
-// Stop timer
+
 
 // Open card + animation
 let openCards = [];
