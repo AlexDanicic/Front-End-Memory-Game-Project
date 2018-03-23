@@ -38,6 +38,8 @@ function shuffle(array) {
  * Create a list that holds all of your cards
  */
 
+const deck = 
+
 
 /*
  * Display the cards on the page
