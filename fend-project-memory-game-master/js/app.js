@@ -99,7 +99,7 @@ function showCard(clickedCard) {
 let starCountResult = 3;
 function removeStar(index) {
     let star = $('.stars').find('i').get(index);
-    $(star).animateCss('jello', function() {
+    $(star).animateCss('bounceOut', function() {
         $(star).addClass('remove-star');
         starIndex += 1;
         starCountResult -= 1;
@@ -124,9 +124,9 @@ $.fn.extend({
 // star rating and count the move
 let starIndex = 0;
 function starRating() {
-    if (moveCount == 2) {
+    if (moveCount == 15) {
         removeStar(starIndex);
-    } else if (moveCount == 5) {
+    } else if (moveCount == 20) {
         removeStar(starIndex);
     }
 }
@@ -145,11 +145,11 @@ function removePreventClick() {
     });
 }
 
-// Open card + animation
+// Open card + CSS animation
 let openCards = [];
 function correctCards() {
-    $(openCards[0]).animateCss('tada');
-    $(openCards[1]).animateCss('tada');
+    $(openCards[0]).animateCss('flip');
+    $(openCards[1]).animateCss('flip');
 }
 
 // Hide cards function
@@ -231,6 +231,12 @@ function matchedCards() {
             endModal(gameDuration);
         }, 1000);
     }
+}
+
+// function sets variable moveCount and HTML back to 0
+function moveCountReset() {
+    moveCount = 0;
+    $('.moves').text(moveCount);
 }
 
 
