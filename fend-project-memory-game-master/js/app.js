@@ -239,6 +239,14 @@ function moveCountReset() {
     $('.moves').text(moveCount);
 }
 
+// fn starReset removes the class with stars and put it back to 3
+function starsReset() {
+    starIndex = 0;
+    $('.stars').find('i').each(function(index) {
+        $('i').removeClass('remove-star');
+    });
+}
+
 
 
 
