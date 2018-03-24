@@ -224,10 +224,16 @@ function matchedCards() {
     $(openCards[1]).addClass('match');
     matchedPairCount += 1;
     if (matchedPairCount ===8) {
-        stopTimer()
+        stopTimer();
+        let elapsedTime = $('time-panel').data('seconds');
+        let gameDuration = fancyTimeFormat(elapsedTime);
+        setTimeout(function() {
+            endModal(gameDuration);
+        }, 1000);
     }
-
 }
+
+
 
 
 
