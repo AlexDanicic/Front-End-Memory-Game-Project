@@ -17,7 +17,7 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #fff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
 }
 
@@ -26,11 +26,17 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    max-height: 100vh;
 }
 
-h1 {
+h1, h2 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+}
+
+.main {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 2.5em;
 }
 
 /*
@@ -113,4 +119,25 @@ remove the star
 */
 .remove-star {
     color: #acacac;
+}
+
+/*
+button and button hover
+*/
+.restart-button {
+    padding: 15px 20px;
+    border-radius: 15px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    color: #fff;
+    text-shadow: 2px 2px 2px #4d4b4b;
+    font-size: 1.5em;
+    cursor: pointer;
+    font-family: 'Kaushan Script', cursive;
+}
+
+.restart-button:hover {
+    background: linear-gradient(160deg, #aa7ecd 0%, #02ccba 100%);
+    color: #fff;
+    text-shadow: 2px 2px 2px #4d4b4b;
+    font-size: 1.5em;
 }

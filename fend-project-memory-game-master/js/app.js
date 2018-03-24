@@ -1,5 +1,6 @@
 // Add a New player later...
 const newPlayer = prompt("Please, enter Your name");
+
 // Cards Array
 const defaultCards = [
     "fa-diamond",
