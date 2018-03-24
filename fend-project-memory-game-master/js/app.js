@@ -1,5 +1,5 @@
 // Add a New player later...
-
+const newPlayer = prompt("Please, enter Your name");
 // Cards Array
 const defaultCards = [
     "fa-diamond",
@@ -66,9 +66,9 @@ function fancyTimeFormat(time) {
     let ret = "";
 
     if (hrs > 0) {
-        ret += "" + hrs + ":" +(mins < 10 ? "0" : "");
+        ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
     }
-    ret += "" + mins + ":" +(secs < 10 ? "0" : "");
+    ret += "" + mins + ":" + (secs < 10 ? "0" : "");
     ret += "" + secs;
     return ret;
 }
@@ -97,6 +97,7 @@ function showCard(clickedCard) {
 
 //remove the star function
 let starCountResult = 3;
+
 function removeStar(index) {
     let star = $('.stars').find('i').get(index);
     $(star).animateCss('bounceOut', function() {
@@ -123,6 +124,7 @@ $.fn.extend({
 
 // star rating and count the move
 let starIndex = 0;
+
 function starRating() {
     if (moveCount == 15) {
         removeStar(starIndex);
@@ -130,8 +132,10 @@ function starRating() {
         removeStar(starIndex);
     }
 }
+
 // movecounter function
 let moveCount = 0;
+
 function moveCounter() {
     moveCount += 1;
     $('.moves').text(moveCount);
@@ -225,7 +229,7 @@ function matchedCards() {
     matchedPairCount += 1;
     if (matchedPairCount ===8) {
         stopTimer();
-        let elapsedTime = $('time-panel').data('seconds');
+        let elapsedTime = $('#time-panel').data('seconds');
         let gameDuration = fancyTimeFormat(elapsedTime);
         setTimeout(function() {
             endModal(gameDuration);
@@ -260,9 +264,30 @@ function endModal(gameDuration) {
          <br>
          <h2>I hope that You liked the game</h2>
          <h2>To restart the game and play again, please click on the button provided below</h2>
-         <button class="restart restart-button" type="button">Restart The Game</button>`
+         <button class="restart restart-button" type="button">Restart The Game</button>
+         
+         <script>
+            $('.restart).on('click', function(){
+                location.reload();
+            });
+         </script>`
     );
 }
+
+// refresh the page and make a new game
+$('.restart').on('click', function() {
+    moveCountReset();
+    starsReset();
+    firstClickedCard = 0;
+    matchedPairCount = 0;
+    openCards = [];
+    $(deck).empty();
+    shuffle(defaultCards);
+    generateDeck();
+    location.reload();
+}
+    
+);
 
 
 
