@@ -252,8 +252,9 @@ function endModal(gameDuration) {
     $('.container').empty();
     $('.container').html(
         `<header>
-            <h1>Well Done</h1>
-         </header>`
+            <h1>Well Done, You Won!</h1>
+         </header>
+         <p><strong>` + moveCount + `</strong> moves have been made</p>`
     );
 }
 
