@@ -227,15 +227,15 @@ function matchedCards() {
     $(openCards[0]).addClass('match');
     $(openCards[1]).addClass('match');
     matchedPairCount += 1;
-    if (matchedPairCount ===8) {
-        stopTimer();
-        let elapsedTime = $('#time-panel').data('seconds');
-        let gameDuration = fancyTimeFormat(elapsedTime);
-        setTimeout(function() {
-            endModal(gameDuration);
-        }, 1000);
+    if (matchedPairCount === 8) {
+      stopTimer();
+      var elapsedTime = $('#time-panel').data('seconds');
+      var duration = fancyTimeFormat(elapsedTime);
+      setTimeout(function() {
+        endModal(duration);
+      },1000);
     }
-}
+  }
 
 // function sets variable moveCount and HTML back to 0
 function moveCountReset() {
@@ -252,27 +252,28 @@ function starsReset() {
 }
 
 // game result and  modal
-function endModal(gameDuration) {
+function endModal(duration) {
     $('.container').empty();
     $('.container').html(
-        `<header>
-            <h1>Well Done, You Won!</h1>
-         </header>
-         <p><strong>` + moveCount + `</strong> moves have been made</p>
-         <p>Your game duration time is: <strong>` + gameDuration + `</strong></p>
-         <p>Your star rating is: <strong>` + starCountResult + `</strong></p>
-         <br>
-         <h2>I hope that You liked the game</h2>
-         <h2>To restart the game and play again, please click on the button provided below</h2>
-         <button class="restart restart-button" type="button">Restart The Game</button>
-         
-         <script>
-            $('.restart).on('click', function(){
-                location.reload();
-            });
-         </script>`
+      `<header>
+        <h1>Well Done ` + newPlayer + `. You Won!</h1>        
+      </header>
+  
+      <p><strong>` + moveCount + `</strong> moves have been made</p>
+      <p>Your star rating is: <strong>` + starCountResult + `</strong></p>
+      <p>Your time is: <strong>` + duration + `</strong></p>
+      <br>
+      <h2>I hope You liked the Memory Game</h2>
+      <h2>To restart the game and play again, please click on the button provided below</h2>
+      <button type='button' class='restart restart-button'>Restart the game</button>
+  
+      <script>
+        $('.restart').on('click', function() {
+          location.reload();
+        });
+      </script>`
     );
-}
+  }
 
 // refresh the page and make a new game
 $('.restart').on('click', function() {
@@ -285,31 +286,4 @@ $('.restart').on('click', function() {
     shuffle(defaultCards);
     generateDeck();
     location.reload();
-}
-    
-);
-
-
-
-
-
-
-
-
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
+});
