@@ -256,7 +256,11 @@ function endModal(gameDuration) {
          </header>
          <p><strong>` + moveCount + `</strong> moves have been made</p>
          <p>Your game duration time is: <strong>` + gameDuration + `</strong></p>
-         <p>Your star rating is: <strong>` + starCountResult + `</strong></p>`
+         <p>Your star rating is: <strong>` + starCountResult + `</strong></p>
+         <br>
+         <h2>I hope that You liked the game</h2>
+         <h2>To restart the game and play again, please click on the button provided below</h2>
+         <button class="restart restart-button" type="button">Restart The Game</button>`
     );
 }
 
