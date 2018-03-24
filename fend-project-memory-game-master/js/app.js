@@ -95,6 +95,95 @@ function showCard(clickedCard) {
     $(clickedCard).addClass('open show')
 }
 
+//remove the star function
+let starCountResult = 3;
+function removeStar(index) {
+    let star = $('.stars').find('i').get(index);
+    $(star).animateCss('jello', function() {
+        $(star).addClass('remove-star');
+        starIndex += 1;
+        starCountResult -= 1;
+    });
+}
+
+// animations
+$.fn.extend({
+    animateCss: function(animationName, callBack) {
+        let animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        this.addClass('animated ' + animationName).one(animationEnd, function() {
+            $(this).removeClass('animated ' + animationName);
+            if (callBack) {
+            callBack();
+        }
+      });
+      return this;  
+    }
+});
+
+
+// star rating and count the move
+let starIndex = 0;
+function starRating() {
+    if (moveCount == 2) {
+        removeStar(starIndex);
+    } else if (moveCount == 5) {
+        removeStar(starIndex);
+    }
+}
+// movecounter function
+let moveCount = 0;
+function moveCounter() {
+    moveCount += 1;
+    $('.moves').text(moveCount);
+    starRating();
+}
+
+// remove prevent click function
+function removePreventClick() {
+    $('.card').each(function(index) {
+        $('.card').removeClass('preventclick');
+    });
+}
+
+// Open card + animation
+let openCards = [];
+function correctCards() {
+    $(openCards[0]).animateCss('tada');
+    $(openCards[1]).animateCss('tada');
+}
+
+// Hide cards function
+function hideCard() {
+    $(openCards[0]).removeClass('clicked open show');
+    $(openCards[1]).removeClass('clicked open show');
+}
+
+// compare cards function
+function compareCards() {
+    let card1Class = $(openCards[0]).children('i').attr('class').split(' ')[1];
+    let card2Class = $(openCards[1]).children('i').attr('class').split(' ')[1];
+    if (card1Class == card2Class) {
+        setTimeout(function() {
+            correctCards();
+            moveCounter();
+            matchedCards();
+            setTimeout(function() {
+                openCards = [];
+                removePreventClick();
+            }, 500);
+        }, 1000);
+    } else {
+        moveCounter();
+        setTimeout(function() {
+            hideCard();
+            setTimeout(function () {
+                openCards = [];
+                removePreventClick();
+            }, 500);
+        }, 1000);
+    }
+}
+
 // store open card
 function storeOpenCard(clickedCard) {
     if (openCards.length < 1) {
@@ -121,11 +210,6 @@ $('.card').on('click', function() {
     }
 });
 
-// Hide cards function
-function hideCards() {
-    $(openCards[0]).removeClass('clicked open show');
-    $(openCards[1]).removeClass('clicked open show');
-}
 
 // Stop timer
 function stopTimer() {
@@ -147,11 +231,7 @@ function matchedCards() {
 
 
 
-// Open card + animation
-let openCards = [];
-function correctCards() {
 
-}
 
 
 
