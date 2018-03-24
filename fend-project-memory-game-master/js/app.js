@@ -247,6 +247,16 @@ function starsReset() {
     });
 }
 
+// game result and  modal
+function endModal(gameDuration) {
+    $('.container').empty();
+    $('.container').html(
+        `<header>
+            <h1>Well Done</h1>
+         </header>`
+    );
+}
+
 
 
 
