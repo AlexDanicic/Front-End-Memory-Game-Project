@@ -254,7 +254,9 @@ function endModal(gameDuration) {
         `<header>
             <h1>Well Done, You Won!</h1>
          </header>
-         <p><strong>` + moveCount + `</strong> moves have been made</p>`
+         <p><strong>` + moveCount + `</strong> moves have been made</p>
+         <p>Your game duration time is: <strong>` + gameDuration + `</strong></p>
+         <p>Your star rating is: <strong>` + starCountResult + `</strong></p>`
     );
 }
 
