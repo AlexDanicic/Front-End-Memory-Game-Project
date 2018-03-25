@@ -50,7 +50,7 @@ function generateDeck() {
 
 // After the first card is clicked, the timer starts
 function startTimer() {
-    if (firstClickedCard == 1) {
+    if (firstClickedCard === 1) {
         $('#time-panel').timer({
             format: '%H:%M:%S'
         });
@@ -93,7 +93,7 @@ function checkClickedCard(clickedCard) {
 
 // function to add open show class
 function showCard(clickedCard) {
-    $(clickedCard).addClass('open show')
+    $(clickedCard).addClass('open show');
 }
 
 //remove the star function
