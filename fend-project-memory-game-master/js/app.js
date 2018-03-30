@@ -1,5 +1,11 @@
-// Add a New player later...
-const newPlayer = prompt("Please, enter Your name");
+// Add a New player
+// simple solution..
+//const newPlayer = prompt("Please, enter Your name");
+// My while loop solution:
+let newPlayer;
+do {
+    newPlayer = prompt("Please, enter Your name");
+} while (!newPlayer);
 
 // Cards Array
 const defaultCards = [
